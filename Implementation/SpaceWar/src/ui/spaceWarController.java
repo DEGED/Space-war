@@ -1,6 +1,7 @@
 package ui;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,11 +42,25 @@ public class spaceWarController {
     @FXML
     private GridPane result;
     
+    private Random rnd;
+    
     private BattleMatrix matrix;
 
     @FXML
     void genarateAndMultiply(ActionEvent event) {
-    	  	
+    	int number = 0;
+    	try {
+    		number = Integer.parseInt(matrices.getText());
+    	}catch(NumberFormatException e){
+    		Alert helpOne = new Alert(AlertType.INFORMATION);
+        	helpOne.setContentText("Please enter a number");
+        	helpOne.setTitle("Help");
+        	
+        	helpOne.show();
+    	}
+    	for (int i = 0; i < number; i++) {
+			matrix = new BattleMatrix(rnd.nextInt(), rnd.nextInt());
+		}
     }
 
     @FXML
@@ -68,28 +83,25 @@ public class spaceWarController {
 
     @FXML
     void multiply(ActionEvent event) {
+    	int rows = 0;
+    	int columns = 0;
     	try {
-    		int rows = Integer.parseInt(rowMatrix.getText());
-        	int columns = Integer.parseInt(columnMatrix.getText());
-        	matrix = new BattleMatrix(rows, columns);
+    		rows = Integer.parseInt(rowMatrix.getText());
+        	columns = Integer.parseInt(columnMatrix.getText());
+        	
     	}catch(NumberFormatException e) {
     		Alert helpOne = new Alert(AlertType.INFORMATION);
-        	helpOne.setContentText("Stop Playing man, only freaking numbers");
+        	helpOne.setContentText("Please enter a number");
         	helpOne.setTitle("Help");
         	
         	helpOne.show();
     	}
+    	
+    	matrix = new BattleMatrix(rows, columns);
     }
 
     @FXML
     void initialize() {
-        assert rowMatrix != null : "fx:id=\"rowMatrix\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert columnMatrix != null : "fx:id=\"columnMatrix\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert rowCoefficient != null : "fx:id=\"rowCoefficient\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert columnCoefficient != null : "fx:id=\"columnCoefficient\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert repeat != null : "fx:id=\"repeat\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert matrices != null : "fx:id=\"matrices\" was not injected: check your FXML file 'spaceWar.fxml'.";
-        assert result != null : "fx:id=\"result\" was not injected: check your FXML file 'spaceWar.fxml'.";
-
+        
     }
 }
