@@ -19,6 +19,7 @@ public class main extends Application{
        	Scene scene= new Scene(root);
        	stage.setTitle("Magic Square");
        	stage.setScene(scene);
+       	stage.setResizable(false);
        	stage.show();
 		
 		
