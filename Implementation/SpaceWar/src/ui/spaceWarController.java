@@ -46,7 +46,11 @@ public class spaceWarController{
     @FXML
     private GridPane result;
     
-    private Random rnd;
+    public GridPane getResult() {
+		return result;
+	}
+
+	private Random rnd;
     
     private ArrayList<BattleMatrix> matrixs;
     
@@ -81,7 +85,6 @@ public class spaceWarController{
     		Alert helpOne = new Alert(AlertType.INFORMATION);
         	helpOne.setContentText("Please enter a number");
         	helpOne.setTitle("Help");
-        	
         	helpOne.show();
     	}
     	multiplyManyMatrices(number);
