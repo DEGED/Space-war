@@ -158,14 +158,11 @@ public class spaceWarController{
     	if(operable(rows, coeficientColumn)==true){
     		for (int i = 0; i < battleMatrix.length; i++){
     			for (int j = 0; j < battleMatrix[i].length; j++){
-    				for (int k = 0; k < battleMatrix[0].length; k++) {
-    					
+    				for (int k = 0; k < battleMatrix[0].length; k++) {	
     					battleMatrix[i][j] += oldbattle[i][k]*coefients[k][j];
 					}
     			}
     		}
-    	}else {
-    		System.out.println("esa monda no se puede");
     	}
     	
     	fill(battleMatrix);
