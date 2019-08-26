@@ -84,6 +84,11 @@ public class spaceWarController{
         	
         	helpOne.show();
     	}
+    	multiplyManyMatrices(number);
+    	
+    }
+    
+    public void multiplyManyMatrices(int number) {
     	int cont = 0;
     	
     	int[][] battleMatrix = new int[5][5];
@@ -141,6 +146,10 @@ public class spaceWarController{
     	}catch(NumberFormatException e){
     		//alerta
     	}
+    	simpleMultiply(repeat2, rows, columns, coeficientRow, coeficientColumn);
+    }
+    
+    public void simpleMultiply(boolean repeat2, int rows, int columns, int coeficientRow, int coeficientColumn) {
     	BattleMatrix battle = new BattleMatrix(repeat2, rows, columns);
     	int[][] coefients = coeficientMatrix(coeficientRow, coeficientColumn);
     	int[][] oldbattle = battle.getMatrix();
